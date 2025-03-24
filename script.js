@@ -8,6 +8,10 @@ const TOBU_EDOGAWA_DAI_BASE_FILE = 'ToEdogawadai'; // 東武バス 江戸川台�
 // 現在の言語状態を保持する変数 (true: 日本語, false: 英語)
 let isJapanese = true;
 
+//URLからスマホモードでの初期言語を取得
+const url = new URL(window.location.href);
+const FirstLanguage = url.searchParams.get('FL');//(true: 日本語, false: 英語)
+
 // 切り替える要素を特定するためのセレクタ
 // 切り替える要素を特定するためのセレクタ
 const translatableTextSelectors = [
@@ -63,7 +67,7 @@ function isSmartphoneMode() {
 
 let wasSmartphoneMode = false;
 function SmartphoneModeCheck() {
-  if (isSmartphoneMode() && !wasSmartphoneMode && !isJapanese){
+  if (isSmartphoneMode() && !wasSmartphoneMode && isJapanese==FirstLanguage){
     toggleLanguage(true);
     wasSmartphoneMode = true;
   }else if (isSmartphoneMode()==false && wasSmartphoneMode==true){
@@ -301,7 +305,7 @@ const tickerMessages = [
   "《運賃》柏の葉キャンパス駅行：168円　柏駅行：294円　江戸川台駅行189円or199円",
   "《「終」の意味》その日の最終バスです",
   "今年卒業する皆さんは、このような卒業制作を行う必要はありません。",
-  ""
+  "毎年4月に時刻表の改正がないか確認をお願いします。"
   // 必要に応じて他のメッセージを追加
 ];
 

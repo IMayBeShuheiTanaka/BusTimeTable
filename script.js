@@ -61,13 +61,13 @@ function getEnglishText(japaneseText) {
 
 
 function isSmartphoneMode() {
-  return window.innerWidth <= 600; // 600pxは例です。適宜調整してください。
+  return window.innerWidth <= 700; // 600pxは例です。適宜調整してください。
 }
 
 
 let wasSmartphoneMode = false;
 function SmartphoneModeCheck() {
-  if (isSmartphoneMode() && !wasSmartphoneMode && isJapanese==FirstLanguage){
+  if (isSmartphoneMode() && !wasSmartphoneMode && isJapanese!=FirstLanguage){
     toggleLanguage(true);
     wasSmartphoneMode = true;
   }else if (isSmartphoneMode()==false && wasSmartphoneMode==true){
@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bottomTickerElement.querySelector('.ticker-text').dataset.englishText = englishText;
     setInterval(updateBottomTicker, 6047 + fadeDuration); // メッセージ表示時間 + フェード時間
   }
-  setInterval(toggleLanguage, 10000); // 10秒ごとに言語を切り替える
+  setInterval(toggleLanguage, 6000); // 6秒ごとに言語を切り替える
   const languageToggleButton = document.getElementById('language-toggle-button');
   if (languageToggleButton) {
     languageToggleButton.addEventListener('click', () => {

@@ -300,12 +300,22 @@ const tickerMessages = [
   "制作：田中柊平（2025年3月稗方研卒業） shuhei.ged@gmail.com",
   "忘れ物はありませんか？　特に傘とか、、、",
   "研究お疲れ様です。",
-  "夜は学生証がないと棟内に戻れないのでお気をつけ下さい。",
+  "18時以降は学生証がないと棟内に戻れないのでお気をつけ下さい。",
   "《成績が良すぎるドーナツ》　　オール５・ファッション",
   "《運賃》柏の葉キャンパス駅行：168円　柏駅行：294円　江戸川台駅行189円or199円",
   "《「終」の意味》その日の最終バスです",
   "今年卒業する皆さんは、このような卒業制作を行う必要はありません。",
-  "毎年4月に時刻表の改正がないか確認をお願いします。"
+  "毎年4月に時刻表の改正がないか確認をお願いします。",
+  "The route via Todai Nishimon-mae takes 7 minutes longer to reach the station than the route via York Mart.",
+  "《Travel time》 Shuttle bus: 8min. Kashiwanoha-Campus Sta.: 10-14min. Kashiwa Sta.: 25min. Edogawadai Sta.: 15-22 min.",
+  "Made by Shuhei Tanaka (Hiekata Lab graduate on March 2025) shuhei.ged@gmail.com",
+  "Did you leave anything behind? Especially umbrellas...",
+  "Thank you for your hard work on your research.",
+  "Please note that you cannot return to this building from 18:00 without your student ID card.",
+  "《Fare》Kashiwanoha-Campus Sta.: 168yen Kashiwa Sta.: 294yen Edogawadai Sta.: 189 or 199yen",
+  "《Meaning of '終'》 It is the last bus of the day.",
+  "This year's graduates do not need to do this kind of graduation project.",
+  "Please check every April for timetable revisions."
   // 必要に応じて他のメッセージを追加
 ];
 
@@ -335,7 +345,7 @@ function updateBottomTicker() {
       const englishText = getEnglishText(japaneseText);
       textSpan.dataset.japaneseText = japaneseText;
       textSpan.dataset.englishText = englishText;
-      currentMessageIndex = (currentMessageIndex + 1) % tickerMessages.length; // 次のメッセージのインデックスへ
+      currentMessageIndex = (currentMessageIndex + Math.floor( Math.random() * 1000 )) % tickerMessages.length; // 次のメッセージのインデックスへ
 
       setTimeout(() => {
         textSpan.classList.remove('fade-out'); // フェードアウトクラスを削除

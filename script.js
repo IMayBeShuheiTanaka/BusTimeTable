@@ -12,7 +12,7 @@ let isJapanese = true;
 const url = new URL(window.location.href);
 const FirstLanguage = url.searchParams.get('FL');//(true: 日本語, false: 英語)
 if (FirstLanguage==0){
-  isJapanese = 0;
+  isJapanese = false;
 }
 
 // 切り替える要素を特定するためのセレクタ

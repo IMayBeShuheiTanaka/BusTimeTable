@@ -11,6 +11,9 @@ let isJapanese = true;
 //URLからスマホモードでの初期言語を取得
 const url = new URL(window.location.href);
 const FirstLanguage = url.searchParams.get('FL');//(true: 日本語, false: 英語)
+if (FirstLanguage==0){
+  isJapanese = 0;
+}
 
 // 切り替える要素を特定するためのセレクタ
 // 切り替える要素を特定するためのセレクタ

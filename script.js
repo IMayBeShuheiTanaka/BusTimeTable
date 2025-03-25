@@ -272,7 +272,10 @@ function setInitialLanguageData() {
     element.dataset.englishText = englishText;
 
     // 初期表示を日本語にする
-    element.textContent = japaneseText;
+    if (FirstLanguage==0){
+      element.textContent = englishText;
+    }else{
+      element.textContent = japaneseText;
   });
 }
 

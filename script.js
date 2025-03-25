@@ -11,9 +11,6 @@ let isJapanese = true;
 //URLからスマホモードでの初期言語を取得
 const url = new URL(window.location.href);
 const FirstLanguage = url.searchParams.get('FL');//(true: 日本語, false: 英語)
-if (FirstLanguage==0){
-  isJapanese = false;
-}
 
 // 切り替える要素を特定するためのセレクタ
 // 切り替える要素を特定するためのセレクタ
@@ -64,13 +61,13 @@ function getEnglishText(japaneseText) {
 
 
 function isSmartphoneMode() {
-  return window.innerWidth <= 700; // 600pxは例です。適宜調整してください。
+  return window.innerWidth <= 600; // 600pxは例です。適宜調整してください。
 }
 
 
 let wasSmartphoneMode = false;
 function SmartphoneModeCheck() {
-  if (isSmartphoneMode() && !wasSmartphoneMode && isJapanese!=FirstLanguage){
+  if (isSmartphoneMode() && !wasSmartphoneMode && isJapanese==FirstLanguage){
     toggleLanguage(true);
     wasSmartphoneMode = true;
   }else if (isSmartphoneMode()==false && wasSmartphoneMode==true){
@@ -303,7 +300,7 @@ const tickerMessages = [
   "制作：田中柊平（2025年3月稗方研卒業） shuhei.ged@gmail.com",
   "忘れ物はありませんか？　特に傘とか、、、",
   "研究お疲れ様です。",
-  "18時以降は学生証がないと棟内に戻れないのでお気をつけ下さい。",
+  "夜は学生証がないと棟内に戻れないのでお気をつけ下さい。",
   "《成績が良すぎるドーナツ》　　オール５・ファッション",
   "《運賃》柏の葉キャンパス駅行：168円　柏駅行：294円　江戸川台駅行189円or199円",
   "《「終」の意味》その日の最終バスです",
@@ -374,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const englishText = getEnglishText(japaneseText);
     bottomTickerElement.querySelector('.ticker-text').dataset.japaneseText = japaneseText;
     bottomTickerElement.querySelector('.ticker-text').dataset.englishText = englishText;
-    setInterval(updateBottomTicker, 6047 + fadeDuration); // メッセージ表示時間 + フェード時間
+    setInterval(updateBottomTicker, 6247 + fadeDuration); // メッセージ表示時間 + フェード時間
   }
   setInterval(toggleLanguage, 6000); // 6秒ごとに言語を切り替える
   const languageToggleButton = document.getElementById('language-toggle-button');

@@ -276,6 +276,7 @@ function setInitialLanguageData() {
       element.textContent = englishText;
     }else{
       element.textContent = japaneseText;
+    }
   });
 }
 

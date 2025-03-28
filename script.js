@@ -12,7 +12,11 @@ let isJapanese = true;
 const url = new URL(window.location.href);
 const FirstLanguage = url.searchParams.get('FL');//(true: 日本語, false: 英語)
 
-// 切り替える要素を特定するためのセレクタ
+// 初期言語設定
+if (firstLanguage !== null) {
+  isJapanese = firstLanguage === 'true';
+}
+
 // 切り替える要素を特定するためのセレクタ
 const translatableTextSelectors = [
   '.translatable-text'
@@ -262,14 +266,14 @@ async function displayNextDepartures(baseFileName, elementId, count) {
  */
 function setInitialLanguageData() {
   const elements = document.querySelectorAll(translatableTextSelectors.join(', '));
-  elements.forEach(element => {
+  elements.forEach((element) => {
     const japaneseText = element.textContent.trim();
     const englishText = getEnglishText(japaneseText);
     element.dataset.japaneseText = japaneseText;
     element.dataset.englishText = englishText;
 
-    // 初期表示を日本語にする
-    element.textContent = japaneseText;
+    // 初期表示を言語設定に基づいて設定
+    element.textContent = isJapanese ? japaneseText : englishText;
   });
 }
 
@@ -373,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const englishText = getEnglishText(japaneseText);
     bottomTickerElement.querySelector('.ticker-text').dataset.japaneseText = japaneseText;
     bottomTickerElement.querySelector('.ticker-text').dataset.englishText = englishText;
-    setInterval(updateBottomTicker, 6247 + fadeDuration); // メッセージ表示時間 + フェード時間
+    setInterval(updateBottomTicker, 11247 + fadeDuration); // メッセージ表示時間 + フェード時間
   }
   setInterval(toggleLanguage, 6000); // 6秒ごとに言語を切り替える
   const languageToggleButton = document.getElementById('language-toggle-button');

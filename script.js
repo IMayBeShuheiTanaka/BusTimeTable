@@ -1,4 +1,4 @@
-﻿// 定数定義
+// 定数定義
 const TODAI_SHUTTLE_BASE_FILE = 'Shuttlebus'; // 東大シャトルバスの基本ファイル名
 const TOBU_KASHIWANOHA_BASE_FILE = 'ToKashiwanoha'; // 東武バス 柏の葉キャンパス駅西口行きの基本ファイル名
 const TOBU_KASHIWA_BASE_FILE = 'ToKashiwa'; // 東武バス 柏駅西口行きの基本ファイル名
@@ -10,13 +10,15 @@ let isJapanese = true;
 
 //URLからスマホモードでの初期言語を取得
 const url = new URL(window.location.href);
-const FirstLanguage = Number(url.searchParams.get('FL'));//１が日本語
+const FirstLanguage = Number(url.searchParams.get('FL'));//0以外が日本語
 
+/*
 // 初期言語設定
 if (FirstLanguage !== null) {
   isJapanese = !(FirstLanguage === 0);
+  console.log(FirstLanguage, isJapanese)
 }
-
+*/
 // 切り替える要素を特定するためのセレクタ
 const translatableTextSelectors = [
   '.translatable-text'
@@ -65,7 +67,7 @@ function getEnglishText(japaneseText) {
 
 
 function isSmartphoneMode() {
-  return window.innerWidth <= 800; // 600pxは例です。適宜調整してください。
+  return window.innerWidth <= 600; // 600pxは例です。適宜調整してください。
 }
 
 
@@ -273,7 +275,7 @@ function setInitialLanguageData() {
     element.dataset.englishText = englishText;
 
     // 初期表示を言語設定に基づいて設定
-    element.textContent = isJapanese ? japaneseText : englishText;
+    element.textContent = japaneseText;
   });
 }
 
@@ -295,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadAndDisplayTimes(); // ページのロード時に最初の時刻表示を行う
   setInitialLanguageData(); // 初期表示のためにデータ属性を設定
   setInterval(updateClock, 500); // 0.5秒ごとに updateClock を呼び出す (時刻表示と時刻表の更新を行う)
-  });
+});
 
 // 切り替えて表示したいテキストの配列（日本語のまま）
 const tickerMessages = [
@@ -379,6 +381,10 @@ document.addEventListener('DOMContentLoaded', () => {
     bottomTickerElement.querySelector('.ticker-text').dataset.englishText = englishText;
     setInterval(updateBottomTicker, 11247 + fadeDuration); // メッセージ表示時間 + フェード時間
   }
+  if (FirstLanguage==false){
+    console.log("TOGGLE LANGUAGE");
+    toggleLanguage(true);
+  };
   setInterval(toggleLanguage, 6000); // 6秒ごとに言語を切り替える
   const languageToggleButton = document.getElementById('language-toggle-button');
   if (languageToggleButton) {

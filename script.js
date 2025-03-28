@@ -14,7 +14,7 @@ const FirstLanguage = url.searchParams.get('FL');//(true: 日本語, false: 英�
 
 // 初期言語設定
 if (FirstLanguage !== null) {
-  isJapanese = FirstLanguage === 'true';
+  isJapanese = !(FirstLanguage === 'English');
 }
 
 // 切り替える要素を特定するためのセレクタ

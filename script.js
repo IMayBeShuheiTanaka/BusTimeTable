@@ -13,8 +13,8 @@ const url = new URL(window.location.href);
 const FirstLanguage = url.searchParams.get('FL');//(true: 日本語, false: 英語)
 
 // 初期言語設定
-if (firstLanguage !== null) {
-  isJapanese = firstLanguage === 'true';
+if (FirstLanguage !== null) {
+  isJapanese = FirstLanguage === 'true';
 }
 
 // 切り替える要素を特定するためのセレクタ

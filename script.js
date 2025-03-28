@@ -328,7 +328,7 @@ const tickerMessages = [
 ];
 
 
-let currentMessageIndex = 0; // 現在表示しているメッセージのインデックス
+let currentMessageIndex = (Math.floor( Math.random() * 1000 )) % tickerMessages.length; // 現在表示しているメッセージのインデックス
 const tickerElementId = 'bottom-ticker'; // テキストを表示する要素のID
 const fadeDuration = 500; // フェードイン・アウトの時間 (ミリ秒)
 

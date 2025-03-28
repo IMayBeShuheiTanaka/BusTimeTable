@@ -306,6 +306,7 @@ const tickerMessages = [
   "《「終」の意味》その日の最終バスです",
   "今年卒業する皆さんは、このような卒業制作を行う必要はありません。",
   "毎年4月に時刻表の改正がないか確認をお願いします。",
+  "祝日は非対応です",
   "The route via Todai Nishimon-mae takes 7 minutes longer to reach the station than the route via York Mart.",
   "《Travel time》 Shuttle bus: 8min. Kashiwanoha-Campus Sta.: 10-14min. Kashiwa Sta.: 25min. Edogawadai Sta.: 15-22 min.",
   "Made by Shuhei Tanaka (Hiekata Lab graduate on March 2025) shuhei.ged@gmail.com",
@@ -315,7 +316,8 @@ const tickerMessages = [
   "《Fare》Kashiwanoha-Campus Sta.: 168yen Kashiwa Sta.: 294yen Edogawadai Sta.: 189 or 199yen",
   "《Meaning of '終'》 It is the last bus of the day.",
   "This year's graduates do not need to do this kind of graduation project.",
-  "Please check every April for timetable revisions."
+  "Please check every April for timetable revisions.",
+  "Holidays are not supported."
   // 必要に応じて他のメッセージを追加
 ];
 

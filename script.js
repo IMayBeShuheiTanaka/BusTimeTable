@@ -314,7 +314,7 @@ const tickerMessages = [
   "毎年4月に時刻表の改正がないか確認をお願いします。",
   "祝日は非対応です",
   "The route via Todai Nishimon-mae takes 7 minutes longer to reach the station than the route via York Mart.",
-  "《Travel time》 Shuttle bus: 8min. Kashiwanoha-Campus Sta.: 10-14min. Kashiwa Sta.: 25min. Edogawadai Sta.: 15-22 min.",
+  "《Travel time》Shuttle bus:8min Kashiwanoha-Campus Sta.:10-14min Kashiwa Sta.:25min Edogawadai Sta.:15-22min",
   "Made by Shuhei Tanaka (Hiekata Lab graduate on March 2025) shuhei.ged@gmail.com",
   "Did you leave anything behind? Especially umbrellas...",
   "Thank you for your hard work on your research.",

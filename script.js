@@ -10,11 +10,11 @@ let isJapanese = true;
 
 //URLからスマホモードでの初期言語を取得
 const url = new URL(window.location.href);
-const FirstLanguage = url.searchParams.get('FL');//(true: 日本語, false: 英語)
+const FirstLanguage = Number(url.searchParams.get('FL'));//１が日本語
 
 // 初期言語設定
 if (FirstLanguage !== null) {
-  isJapanese = !(FirstLanguage === 'English');
+  isJapanese = !(FirstLanguage === 0);
 }
 
 // 切り替える要素を特定するためのセレクタ
@@ -65,7 +65,7 @@ function getEnglishText(japaneseText) {
 
 
 function isSmartphoneMode() {
-  return window.innerWidth <= 600; // 600pxは例です。適宜調整してください。
+  return window.innerWidth <= 800; // 600pxは例です。適宜調整してください。
 }
 
 

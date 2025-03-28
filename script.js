@@ -71,7 +71,7 @@ function isSmartphoneMode() {
 
 let wasSmartphoneMode = false;
 function SmartphoneModeCheck() {
-  if (isSmartphoneMode() && !wasSmartphoneMode && isJapanese==FirstLanguage){
+  if (isSmartphoneMode() && !wasSmartphoneMode && isJapanese!=FirstLanguage){
     toggleLanguage(true);
     wasSmartphoneMode = true;
   }else if (isSmartphoneMode()==false && wasSmartphoneMode==true){
